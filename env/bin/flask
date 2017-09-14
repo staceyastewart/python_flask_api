@@ -1,0 +1,11 @@
+#!/Users/staceyastewart/code/wdi/shoebill/continuing_ed/python_flask_api/env/bin/python3.5
+
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from flask.cli import main
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
