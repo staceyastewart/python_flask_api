@@ -19,7 +19,8 @@ class Tweet(db.Model):
     content = db.Column(db.String(140))
 
     def __init__(self, owner, content):
-        self.owner = ownerself.content = content
+        self.owner = owner
+        self.content = content
 
 # decorator below
 @app.route("/", methods=["GET"])
