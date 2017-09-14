@@ -1,6 +1,7 @@
 import os, datetime
 from flask import Flask, request, json
 from flask_sqlalchemy import SQLAlchemy
+from marshmallow import Schema, fields
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + \
@@ -21,6 +22,15 @@ class Tweet(db.Model):
     def __init__(self, owner, content):
         self.owner = owner
         self.content = content
+
+class TweetSchema(Schema):
+    id = fields.Int(dump_only=True)
+    owner = fields.Str()
+    content = fields.Str()
+    timestamp = fields.DateTime()
+
+tweet_schema = TweetSchema()
+tweets_schema = TweetSchema(many=True)
 
 # decorator below
 @app.route("/", methods=["GET"])
