@@ -35,4 +35,6 @@ tweets_schema = TweetSchema(many=True)
 # decorator below
 @app.route("/", methods=["GET"])
 def index():
-    return "Hi there from app.py"
+    tweets = Tweet.query.all()
+    result = tweets_schema.dump(tweets)
+    return json.jsonify({"tweets": result.data})
