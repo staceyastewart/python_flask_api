@@ -12,7 +12,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 # Models
-
 class Tweet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     owner = db.Column(db.String(20))
