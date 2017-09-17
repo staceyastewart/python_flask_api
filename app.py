@@ -6,9 +6,7 @@ from marshmallow import Schema, fields
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + \
 os.path.join(os.path.abspath(os.path.dirname(__file__)), "app.sqlite")
-
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
 db = SQLAlchemy(app)
 
 # Models
